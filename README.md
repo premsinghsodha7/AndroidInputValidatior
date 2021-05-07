@@ -140,7 +140,7 @@ dependencies {
 }
 ```
 
-Alternatively, it's also available on [JitPack](https://jitpack.io/):
+Alternatively, it's also available on [JitPack](https://jitpack.io/#premsinghsodha7/AndroidInputValidatior):
 * Add it in your root `build.gradle` at the end of repositories:
 ```gradle
 allprojects {
