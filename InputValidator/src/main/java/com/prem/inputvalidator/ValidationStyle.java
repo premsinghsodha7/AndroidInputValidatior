@@ -2,9 +2,9 @@ package com.prem.inputvalidator;
 
 public enum ValidationStyle {
 
-    BASIC(0),
-    COLORATION(1),
-    UNDERLABEL(2),
+    SIMPLE(0),
+    COLORED(1),
+    LABELED(2),
     TEXT_INPUT_LAYOUT(3);
 
     private final int mValue;
@@ -20,11 +20,11 @@ public enum ValidationStyle {
     public static ValidationStyle fromValue(int value) {
         switch (value) {
             case 0:
-                return ValidationStyle.BASIC;
+                return ValidationStyle.SIMPLE;
             case 1:
-                return ValidationStyle.COLORATION;
+                return ValidationStyle.COLORED;
             case 2:
-                return ValidationStyle.UNDERLABEL;
+                return ValidationStyle.LABELED;
             case 3:
                 return ValidationStyle.TEXT_INPUT_LAYOUT;
             default:

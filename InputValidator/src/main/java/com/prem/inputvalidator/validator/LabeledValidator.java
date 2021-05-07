@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 
-public class UnderlabelValidator extends Validator {
+public class LabeledValidator extends Validator {
 
     private Context mContext;
     private final ArrayList<ViewsInfo> mViewsInfos = new ArrayList<>();
@@ -103,7 +103,7 @@ public class UnderlabelValidator extends Validator {
         final EditText editText = validationHolder.getEditText();
         ViewGroup parent = (ViewGroup) editText.getParent();
         if (parent instanceof ConstraintLayout) {
-            throw new UnsupportedLayoutException("UnderlabelValidator doesn't support ConstraintLayout, please use TextInputLayoutValidator or other any other validator.");
+            throw new UnsupportedLayoutException("LabeledValidator doesn't support ConstraintLayout, please use TextInputLayoutValidator or other any other validator.");
         }
         int index = parent.indexOfChild(editText);
         LinearLayout newContainer = new LinearLayout(mContext);

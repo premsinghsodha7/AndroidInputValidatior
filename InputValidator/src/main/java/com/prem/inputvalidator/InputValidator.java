@@ -12,10 +12,10 @@ import com.prem.inputvalidator.utils.customutils.CustomErrorReset;
 import com.prem.inputvalidator.utils.customutils.CustomValidation;
 import com.prem.inputvalidator.utils.customutils.CustomValidationCallback;
 import com.prem.inputvalidator.utils.customutils.SimpleCustomValidation;
-import com.prem.inputvalidator.validator.BasicValidator;
-import com.prem.inputvalidator.validator.ColorationValidator;
+import com.prem.inputvalidator.validator.LabeledValidator;
+import com.prem.inputvalidator.validator.SimpleValidator;
+import com.prem.inputvalidator.validator.ColoredValidator;
 import com.prem.inputvalidator.validator.TextInputLayoutValidator;
-import com.prem.inputvalidator.validator.UnderlabelValidator;
 import com.prem.inputvalidator.validator.Validator;
 
 import java.util.regex.Pattern;
@@ -28,19 +28,19 @@ public class InputValidator {
 
     public InputValidator(ValidationStyle style) {
         switch (style) {
-            case BASIC:
-                if (mValidator == null || !(mValidator instanceof BasicValidator)) {
-                    mValidator = new BasicValidator();
+            case SIMPLE:
+                if (mValidator == null || !(mValidator instanceof SimpleValidator)) {
+                    mValidator = new SimpleValidator();
                 }
                 return;
-            case COLORATION:
-                if (mValidator == null || !(mValidator instanceof ColorationValidator)) {
-                    mValidator = new ColorationValidator();
+            case COLORED:
+                if (mValidator == null || !(mValidator instanceof ColoredValidator)) {
+                    mValidator = new ColoredValidator();
                 }
                 return;
-            case UNDERLABEL:
-                if (mValidator == null || !(mValidator instanceof UnderlabelValidator)) {
-                    mValidator = new UnderlabelValidator();
+            case LABELED:
+                if (mValidator == null || !(mValidator instanceof LabeledValidator)) {
+                    mValidator = new LabeledValidator();
                 }
                 return;
             case TEXT_INPUT_LAYOUT:
@@ -61,14 +61,14 @@ public class InputValidator {
     }
 
     private void checkIsColorationValidator() {
-        if (!(mValidator instanceof ColorationValidator)) {
-            throw new UnsupportedOperationException("Only supported by ColorationValidator.");
+        if (!(mValidator instanceof ColoredValidator)) {
+            throw new UnsupportedOperationException("Only supported by ColoredValidator.");
         }
     }
 
     private void checkIsUnderlabelValidator() {
-        if (!(mValidator instanceof UnderlabelValidator)) {
-            throw new UnsupportedOperationException("Only supported by UnderlabelValidator.");
+        if (!(mValidator instanceof LabeledValidator)) {
+            throw new UnsupportedOperationException("Only supported by LabeledValidator.");
         }
     }
 
@@ -86,22 +86,22 @@ public class InputValidator {
 
     public void setContext(Context context) {
         checkIsUnderlabelValidator();
-        ((UnderlabelValidator) mValidator).setContext(context);
+        ((LabeledValidator) mValidator).setContext(context);
     }
 
     public void setColor(int color) {
         checkIsColorationValidator();
-        ((ColorationValidator) mValidator).setColor(color);
+        ((ColoredValidator) mValidator).setColor(color);
     }
 
     public void setUnderlabelColor(int colorValue) {
         checkIsUnderlabelValidator();
-        ((UnderlabelValidator) mValidator).setColor(colorValue);
+        ((LabeledValidator) mValidator).setColor(colorValue);
     }
 
     public void setUnderlabelColorByResource(int colorResId) {
         checkIsUnderlabelValidator();
-        ((UnderlabelValidator) mValidator).setColorByResource(colorResId);
+        ((LabeledValidator) mValidator).setColorByResource(colorResId);
     }
 
     public void setTextInputLayoutErrorTextAppearance(int styleId) {

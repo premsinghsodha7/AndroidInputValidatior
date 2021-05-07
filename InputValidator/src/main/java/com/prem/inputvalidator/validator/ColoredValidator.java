@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 
-public class ColorationValidator extends Validator {
+public class ColoredValidator extends Validator {
 
     private int mColor = Color.RED;
     private final HashMap<EditText, TextWatcher> mTextWatcherForEditText = new HashMap<EditText, TextWatcher>();

@@ -6,7 +6,7 @@ import com.prem.inputvalidator.utils.ValidationCallback;
 
 import java.util.regex.Matcher;
 
-public class BasicValidator extends Validator {
+public class SimpleValidator extends Validator {
 
     private final ValidationCallback mValidationCallback = new ValidationCallback() {
         @Override
