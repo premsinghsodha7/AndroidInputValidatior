@@ -133,7 +133,7 @@ findViewById(R.id.btn_clr).setOnClickListener(new View.OnClickListener() {
 
 ## Import as dependency
 
-For Gradle it's easy - just add below to your module's `build.gradle` (it's available on [Maven Central](https://search.maven.org/artifact/com.basgeekball/awesome-validation)):
+For Gradle it's easy - just add below to your module's `build.gradle`
 ```gradle
 dependencies {
     implementation 'com.github.premsinghsodha7:AndroidInputValidatior:1.0.1'
